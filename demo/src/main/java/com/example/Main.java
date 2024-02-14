@@ -1,5 +1,7 @@
 package com.example;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         // try-catch
@@ -61,5 +63,30 @@ public class Main {
             e.printStackTrace();
         }
         // yep, you guessed it - more stuff
+
+        // try-with-resources
+        try(Scanner scanner1 = new Scanner(System.in)) {
+            // do something with scanner1
+        }
+
+        Scanner scanner2 = null;
+
+        try {
+            scanner2 = new Scanner(System.in);
+        }
+
+        finally {
+            if (scanner2 != null) {
+                scanner2.close();
+            }
+        }
+
+        try (Scanner scanner3 = new Scanner(System.in)) {
+            // do something with scanner3
+         }
+
+         catch (Exception e) {
+             e.printStackTrace();
+         }
     }
 }
